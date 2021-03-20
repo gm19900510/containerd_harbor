@@ -116,16 +116,22 @@ EOF
 [root@master ~]# update-ca-trust force-enable
 [root@master ~]# update-ca-trust extract
 ```
+
 > 其中`ca_file: /etc/pki/ca-trust/source/anchors/www.harbor.mobi.crt`是生产的Harbor证书文件。
 
+
 通过 crictl 去 pull 镜像
+
 
 ```bash
 [root@master ~]# crictl pull www.harbor.mobi:1443/private/whoami:latest
 Image is up to date for sha256:0f6fbbedd3777530ea3bedadf0a75b9aba805a55f6c5481ef0ebd762c5eeb818
 [root@master ~]# 
+```
+
 
 查看Containerd 配置文件末尾追加的配置
+
 
 ```bash
 [root@master ~]# cat /var/lib/rancher/k3s/agent/etc/containerd/config.toml
@@ -173,4 +179,3 @@ Image is up to date for sha256:0f6fbbedd3777530ea3bedadf0a75b9aba805a55f6c5481ef
   
   
 ```
-https://my.oschina.net/u/4148359/blog/4885268
